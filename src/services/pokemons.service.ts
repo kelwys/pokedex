@@ -10,3 +10,7 @@ export const getAllPokemons = async () => {
   });
   return data;
 };
+
+export const getPokemon = async (newPokemon: string) => {
+  return (await api.get(`pokemon/${newPokemon}`)).data
+};
