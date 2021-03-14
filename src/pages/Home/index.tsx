@@ -1,11 +1,13 @@
 import React, { FormEvent, useEffect, useState } from 'react';
 import { getAllPokemons, getPokemon } from '../../services/pokemons.service';
+import { Link } from 'react-router-dom';
+import { FiChevronRight } from 'react-icons/fi';
 
 import GridPokemons from '../../components/GridPokemons'
 
 import logoImg from '../../assets/logo.svg'
 
-import { Title, Form, Error } from './styles';
+import { Title, Form, ResultSearch, Error } from './styles';
 
 interface Pokemon {
   id: number;
@@ -65,7 +67,21 @@ const Home: React.FC = () => {
       {inputError && <Error>{inputError}</Error>}
 
       {pokemon ?
-        <h1>{pokemon.name}</h1>
+        <ResultSearch>
+          <Link key={pokemon.name}
+            to={`/pokemon/${pokemon.name}`}
+          >
+            <img
+              src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`}
+              alt={pokemon.name}
+            />
+            <div>
+              <strong>{pokemon.name.toUpperCase()} #
+              {pokemon.id.toString().padStart(3, '0')}</strong>
+            </div>
+            <FiChevronRight size={20} />
+          </Link>
+        </ResultSearch>
         :
         <GridPokemons
           pokemons={pokemons}
