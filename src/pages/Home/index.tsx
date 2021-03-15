@@ -1,4 +1,4 @@
-import React, { FormEvent, useEffect, useState } from 'react';
+import React, { FormEvent, useEffect, useState } from 'react'; // eslint-disable-line
 import { getAllPokemons, getPokemon } from '../../services/pokemons.service';
 import { Link } from 'react-router-dom';
 import { FiChevronRight } from 'react-icons/fi';

@@ -36,7 +36,7 @@ const Pokemon: React.FC = () => {
 
   useEffect(() => {
     loadPokemon();
-  }, [params.pokemon]);
+  }, [params.pokemon]); // eslint-disable-line
 
   return(
     <>
