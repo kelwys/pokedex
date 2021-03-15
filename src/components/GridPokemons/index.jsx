@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { Grid } from './styles';
 
@@ -9,12 +10,12 @@ const GridPokemons = ({ pokemons })  => {
         <div className="container">
           {pokemons.map(pokemon => (
             <div className="content" key={pokemon.name}>
-              <a href="#">
+              <Link to={`pokemon/${pokemon.name}`}>
                 <img
                 src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`}
                 alt={pokemon.name}
                 />
-              </a>
+              </Link>
               <div>
                 <strong>{pokemon.name}</strong>
               </div>
