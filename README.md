@@ -34,7 +34,7 @@
 </p>
 
 <h4 align="center">
-	🚧  Building 🚀  🚧
+	🚧 Status: Building 🚀  🚧
 </h4>
 </br>
 
