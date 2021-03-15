@@ -77,7 +77,7 @@ const Home: React.FC = () => {
             />
             <div>
               <strong>{pokemon.name.toUpperCase()} #
-              {pokemon.id.toString().padStart(3, '0')}</strong>
+              {pokemon.id.toString().padStart(4, '0')}</strong>
             </div>
             <FiChevronRight size={20} />
           </Link>
