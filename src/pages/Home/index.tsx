@@ -40,7 +40,7 @@ const Home: React.FC = () => {
       return;
     }
     try {
-      const pokemon: Pokemon = await getPokemon(newPokemon);
+      const pokemon: Pokemon = await getPokemon(newPokemon.toLowerCase());
       setPokemon(pokemon);
       setNewPokemon('');
       setInputError('');
