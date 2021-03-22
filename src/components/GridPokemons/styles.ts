@@ -7,17 +7,16 @@ export const Grid = styled.div`
   .container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
   }
 
   .content {
-    height: 140px;
+    flex: 1;
+    min-width: 140px;
 
     background: #FFF;
     border-radius: 5px;
     margin: 5px;
     padding: 5px;
-    display: block;
     text-decoration: none;
     text-align: center;
 
