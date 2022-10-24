@@ -12,6 +12,7 @@ import { Title, Form, ResultSearch, Error } from './styles';
 interface Pokemon {
   id: number;
   name: string;
+  isFavorite: string;
 }
 
 
@@ -24,10 +25,17 @@ const Home: React.FC = () => {
   const loadAllPokemons = async () => {
     const pokemons = await getAllPokemons();
     setPokemons(pokemons);
+
   }
 
   useEffect(() => {
-    loadAllPokemons();
+    const favoritesStorage = JSON.parse(localStorage.getItem('favorites') || '{}');
+
+    if (favoritesStorage.length > 3){
+      setPokemons(favoritesStorage)
+    } else {
+      loadAllPokemons();
+    }
   }, []);
 
   async function handleSearchPokemon(
@@ -48,6 +56,21 @@ const Home: React.FC = () => {
       setInputError('Erro na busca por esse Pokemon!')
     }
 
+  }
+  const handleFavorite = (event: any, pokemon: any) => {
+    const favorites = []
+    for (let i = 0; i < pokemons.length; i ++) {
+      if(pokemons[i].id == pokemon.id) {
+        if(pokemons[i].isFavorite == 'favorite-default'){
+          pokemons[i].isFavorite = 'favorited'
+        } else {
+          pokemons[i].isFavorite = 'favorite-default'
+        }
+      }
+      favorites.push(pokemons[i])
+  }
+    setPokemons(favorites)
+    localStorage.setItem('favorites', JSON.stringify(favorites))
   }
 
   return (
@@ -85,6 +108,7 @@ const Home: React.FC = () => {
         :
         <GridPokemons
           pokemons={pokemons}
+          handleFavorite={ handleFavorite }
         />
       }
     </>

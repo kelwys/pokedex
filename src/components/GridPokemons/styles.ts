@@ -4,6 +4,14 @@ export const Grid = styled.div`
   margin-top: 50px;
   max-width: 700px;
 
+  .favorite-default {
+    background-color: gray;
+  }
+
+  .favorited {
+    background-color: red;  
+  }
+
   .container {
     display: flex;
     flex-wrap: wrap;
