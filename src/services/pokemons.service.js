@@ -5,7 +5,8 @@ export const getAllPokemons = async () => {
   const data = response.data.results.map((pokemon, idx) => {
     return {
       id: idx + 1,
-      name: pokemon.name
+      name: pokemon.name,
+      isFavorite: 'favorite-default'
     };
   });
   return data;
